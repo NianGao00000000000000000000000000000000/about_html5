@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>如何制作H5？</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1605641e-0e8f-80a8-bfa5-c55385ad0b1b" class="page sans"><header><h1 class="page-title">如何制作H5？</h1><p class="page-description"></p></header><div class="page-body"><h2 id="1605641e-0e8f-8009-9027-e853bad7029b" class="">制作H5的通用步骤</h2><p id="1605641e-0e8f-8040-8bfd-f22bced1cfcd" class="">📌1：确定你要做一个怎样的网页，写什么主题，用什么样式，要不要添加交互。</p><blockquote id="1605641e-0e8f-8021-857b-e1e83c1208ab" class="">复杂的网站需要更详细的指引，深入到颜色、字体、页面上元素的间距、适当的书写风格等等以及其他细节。但对于你的第一个网站来说，最好简单一些。</blockquote><p id="1605641e-0e8f-8021-a074-c828c9c05801" class="">📌2：大致编写出你的H5的框架，以便于后期进行填充。好的框架可以帮你更好更快地完成H5制作。</p><p id="1605641e-0e8f-8025-ae9f-ed490f0486fc" class="">📌3：为你的H5收集素材，准备好需要的文本、图片、色彩、字体、代码等。</p><p id="1605641e-0e8f-80dc-9104-f646e1744488" class="">📌4：将内容填充到你的H5中。</p><p id="1625641e-0e8f-8053-8f14-c9896cb345fd" class="">📌5：在H5中添加细节，比如动效、交互等等。这些东西将会让H5更美观、更吸引读者。</p><p id="1625641e-0e8f-8099-a9c8-d6dc6a03aa22" class="">📌6：调试。试着在不同浏览器、不同设备上打开你的H5，来确保所有用户都能看到你想呈现给他们的。</p><blockquote id="1625641e-0e8f-8076-b38e-d348b5858d21" class="">在页面较窄时（比如手机），页面元素可能会堆叠在一起，所以你最好考虑一下页面的自适应功能。</blockquote><p id="1605641e-0e8f-80a5-aa6d-da88a3a18006" class="">当然了，这只是一个参考步骤，具体怎么做还是取决于你所要制作网页的内容与你平时的习惯。</p><hr id="1625641e-0e8f-8009-9691-d98092c870df"/><h2 id="1625641e-0e8f-8020-8952-eef2b42a3495" class="">H5编写器</h2><p id="1625641e-0e8f-80ec-a082-e2e9e4c09725" class="">H5是可以直接用文本编辑器编辑的，但这很麻烦，所以我们一般使用一些网站和应用来帮助我们编写。</p><h3 id="1625641e-0e8f-8057-bca9-c9722910f590" class="">Canva -可画-</h3><figure id="1625641e-0e8f-8019-bfcd-c5e900640d18"><a href="https://www.canva.cn/?display-com-optio" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">https://www.canva.cn/?display-com-optio</div></div></a></figure><figure id="1625641e-0e8f-805c-8e41-cd4ea9eef7e3" class="image"><a href="image.png"><img style="width:707.980224609375px" src="image.png"/></a><figcaption>可画主页</figcaption></figure><p id="1625641e-0e8f-80a7-bf81-d2dcb2912047" class="">可画Canva是一个将设计、代码和协作集于一体的在线设计平台，它提供了各种易于使用的模板和设计工具，让用户无须具备过多专业设计知识也能轻松完成图形设计、海报、社交媒体图像等创作。</p><p id="1625641e-0e8f-80fd-821a-f2223fb4e4bb" class="">在主页上有一个“网站”按钮，点击即可使用模板建造网站。</p><figure id="1625641e-0e8f-805b-9868-fd72225e6ae8" class="image"><a href="image%201.png"><img style="width:2560px" src="image%201.png"/></a><figcaption>编辑效果</figcaption></figure><div id="1625641e-0e8f-80ff-aa9e-c3e1eb8b72fa" class="column-list"><div id="1625641e-0e8f-8043-a25e-e9f9ef919268" style="width:100%" class="column"><p id="1625641e-0e8f-805f-8540-e6bf2541f01c" class=""><strong>优点：</strong></p><ul id="1625641e-0e8f-80ef-be4b-f0257e6d58e8" class="bulleted-list"><li style="list-style-type:disc">简单快捷，易于上手。</li></ul><ul id="1625641e-0e8f-800c-89d4-cf12c6063fe3" class="bulleted-list"><li style="list-style-type:disc">有多种图形、字体、动效，资源库丰富。</li></ul><ul id="1625641e-0e8f-808d-bf2b-d18e3d27f89a" class="bulleted-list"><li style="list-style-type:disc">完成后可以直接托管网站。</li></ul><ul id="1625641e-0e8f-8054-ac13-fad866c94ab9" class="bulleted-list"><li style="list-style-type:disc">有团队功能，可以多人联线编辑同一个文档，还可以发表评论。</li></ul></div><div id="1625641e-0e8f-803f-9958-e9ae6953315c" style="width:100%" class="column"><p id="1625641e-0e8f-8094-bc56-edeb40eb4d35" class=""><strong>缺点：</strong></p><ul id="1625641e-0e8f-80bd-8f0d-c3ab07b64a23" class="bulleted-list"><li style="list-style-type:disc">高级功能需要VIP。</li></ul><ul id="1625641e-0e8f-8073-810b-ec4035d8b544" class="bulleted-list"><li style="list-style-type:disc">设计出的网站交互较少。</li></ul></div></div><hr id="1625641e-0e8f-80f5-b3b1-c9e4e7a87396"/><h3 id="1625641e-0e8f-800b-93c3-e243b6057ea1" class="">XIUMI -秀米-</h3><figure id="1625641e-0e8f-80f6-9d32-eb6ae5443ff2"><a href="https://xiumi.us/#/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">秀米编辑器官网_微信公众号图文编辑和H5制作</div><div class="bookmark-description">秀米，微信公众号排版和H5制作工具，海量模板素材和排版样式，强大的布局编辑功能，轻松制作公众号文章和H5，打动你的人群！</div></div><div class="bookmark-href"><img src="https://xiumi.us/favicon.ico" class="icon bookmark-icon"/>https://xiumi.us/#/</div></div></a></figure><figure id="1625641e-0e8f-80c7-b140-d48a47d95ea3" class="image"><a href="image%202.png"><img style="width:2560px" src="image%202.png"/></a><figcaption>秀米主页</figcaption></figure><p id="1625641e-0e8f-8016-a6e0-e373d7fedca1" class="">秀米是一款基于微信平台的内容编辑工具，允许用户使用微信编辑和发布图文消息。它提供多种模板和设计工具，使得内容制作和发布变得更加方便快捷。</p><p id="1625641e-0e8f-80db-9e43-e38e7fcb8a49" class="">依次点击“我的秀米”“我的H5”“新建一个H5”，即可创建H5。</p><figure id="1625641e-0e8f-8008-bad6-ce802de70fd1" class="image"><a href="image%203.png"><img style="width:707.980224609375px" src="image%203.png"/></a><figcaption>秀米编辑页面</figcaption></figure><div id="1625641e-0e8f-80b5-a61e-ca32fe82721a" class="column-list"><div id="1625641e-0e8f-80d8-8d14-d8469b63a9c5" style="width:100%" class="column"><p id="1625641e-0e8f-803a-b857-c681b17d90b2" class=""><strong>优点：</strong></p><ul id="1625641e-0e8f-80b6-8205-e96528eb5760" class="bulleted-list"><li style="list-style-type:disc">简单快捷，易于上手。</li></ul><ul id="1625641e-0e8f-80da-9806-ee150506fde9" class="bulleted-list"><li style="list-style-type:disc">有丰富的资源库，也可以在线存储资源。</li></ul><ul id="1625641e-0e8f-801c-8821-c58759b66368" class="bulleted-list"><li style="list-style-type:disc">有表单、按钮功能。</li></ul><ul id="1625641e-0e8f-8076-b90d-e4e294b63059" class="bulleted-list"><li style="list-style-type:disc">可以分享为网站、微博等。</li></ul><ul id="1625641e-0e8f-8090-974c-d5c070e39275" class="bulleted-list"><li style="list-style-type:disc">有团队（虽然只能传文件）</li></ul></div><div id="1625641e-0e8f-8085-be04-c65014794734" style="width:100%" class="column"><p id="1625641e-0e8f-8023-b455-d7b8a8e325e2" class=""><strong>缺点：</strong></p><ul id="1625641e-0e8f-8062-8b5e-e13fe7ee13b7" class="bulleted-list"><li style="list-style-type:disc">需要会员，不然很多功能会受限，分享的网站在访问几次后也会出现广告</li></ul><ul id="1625641e-0e8f-803c-8de9-cabf9b25a52b" class="bulleted-list"><li style="list-style-type:disc">交互仍然较少。</li></ul><ul id="1625641e-0e8f-803a-981b-ea4956725f70" class="bulleted-list"><li style="list-style-type:disc">动效设置不方便。</li></ul><p id="1625641e-0e8f-8052-8fce-f2205ad2f730" class="">
+</p></div></div><hr id="1625641e-0e8f-8000-bbcf-c165e179f62b"/><h3 id="1625641e-0e8f-8097-b312-c8a012db1cb2" class="">BI.COOL -笔酷-</h3><figure id="1625641e-0e8f-8079-9373-ffbad027f869"><a href="https://bi.cool" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">笔.COOL，一个功能完备、使用便捷的在线HTML/Vue代码编辑器和前端作品分享平台</div><div class="bookmark-description">HTML/CSS/JS在线编辑器，Vue在线编辑，实时预览，随时随地编写前端代码；Vue Playground；社区驱动，汲取设计灵感；BUG复现，高效沟通协作；</div></div><div class="bookmark-href"><img src="https://s.bi.cool/logo.svg?t=1" class="icon bookmark-icon"/>https://bi.cool</div></div></a></figure><figure id="1625641e-0e8f-8008-bad6-ce802de70fd1" class="image"><a href="image%204.png"><img style="width:707.980224609375px" src="image%204.png"/></a><figcaption>笔COOL编辑页面</figcaption></figure><p id="1625641e-0e8f-808f-b2a8-df0768eea69b" class="">笔.COOL 是一个在线的 HTML、CSS 和 JavaScript 代码编辑器，用户无需安装即可使用。它提供代码高亮、自动补全和实时预览等功能，提升编码效率，并支持云端存储，确保项目安全。用户可以轻松分享作品链接给他人，方便预览和查看源码。此外，笔.COOL 还可用作 BUG 复现工具，帮助用户快速定位问题。其嵌入功能允许将编辑器和源码实时预览嵌入到博客中。活跃的社区为用户提供设计灵感和学习机会，适合各类前端开发者。总体而言，笔.COOL 是一个功能全面且易于使用的前端创作和分享平台。</p><p id="1625641e-0e8f-80a7-a3d8-ce38a4f92953" class="">这个页面够清楚了吧…</p><div id="1625641e-0e8f-80e1-b680-cfbf175b73be" class="column-list"><div id="1625641e-0e8f-800c-a0ca-c11271673157" style="width:100%" class="column"><p id="1625641e-0e8f-80e5-ab9e-f4120d0b56df" class=""><strong>优点：</strong></p><ul id="1625641e-0e8f-8084-8588-fa77e7535760" class="bulleted-list"><li style="list-style-type:disc">是一个HTML代码编辑器，可以实现很多功能。</li></ul><ul id="1625641e-0e8f-809d-bf2b-c0cdb3936395" class="bulleted-list"><li style="list-style-type:disc">社区里有很多模板。</li></ul><ul id="1625641e-0e8f-8038-a29c-df644769e8b6" class="bulleted-list"><li style="list-style-type:disc">可以生成HTML文件（真 · H5），方便用户处理。</li></ul><ul id="1625641e-0e8f-8077-8caf-dc7172124c7e" class="bulleted-list"><li style="list-style-type:disc">有一个免费的AI（不大智能）</li></ul></div><div id="1625641e-0e8f-806e-98e2-f10805c838c6" style="width:100%" class="column"><p id="1625641e-0e8f-803e-ad8c-f31eb592b9e0" class=""><strong>缺点：</strong></p><ul id="1625641e-0e8f-80fd-8da4-ee6a8959763f" class="bulleted-list"><li style="list-style-type:disc">需要一定的HTML5编程基础。</li></ul><ul id="1625641e-0e8f-8091-926a-cdbde1b80d5d" class="bulleted-list"><li style="list-style-type:disc">有时AI会出现故障。</li></ul><ul id="1625641e-0e8f-802c-892f-f7e396a77d60" class="bulleted-list"><li style="list-style-type:disc">无法使用本地文件。</li></ul></div></div><hr id="1625641e-0e8f-8021-b40e-fa5de6db713a"/><h2 id="1625641e-0e8f-80a6-b771-fbb01d4bc807" class="">为什么推荐直接编写H5？</h2><ul id="1645641e-0e8f-80e9-9978-c3a672a83393" class="bulleted-list"><li style="list-style-type:disc"><strong>提高效率</strong>：直接编写HTML代码更容易进行批量修改和结构调整，快速实现功能需求。</li></ul><ul id="1645641e-0e8f-8037-8839-c0c9709e7a23" class="bulleted-list"><li style="list-style-type:disc"><strong>精简文件</strong>：通过直接编写代码，可以省去图形化编辑器中的中间文件，使文件体积更小，便于传输和处理。</li></ul><ul id="1645641e-0e8f-8000-9000-f781286e8200" class="bulleted-list"><li style="list-style-type:disc"><strong>学习提升</strong>：直接编写HTML代码有助于加深对HTML规则的掌握和理解，对初学者来说是一个很好的学习途径。</li></ul><p id="1645641e-0e8f-80b8-8bbb-f2ffd751eb42" class="">接下来，就让我们一起踏入HTML语言的殿堂吧。</p><p id="1645641e-0e8f-80eb-8d02-e6f444ecf155" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span><a href = "../3/index.html">NEXT</a></body></html>

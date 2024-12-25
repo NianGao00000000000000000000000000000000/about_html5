@@ -1,0 +1,711 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>HTML语法介绍</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1645641e-0e8f-80ba-ac35-f0f37776c166" class="page sans"><header><h1 class="page-title">HTML语法介绍</h1><p class="page-description"></p></header><div class="page-body"><h1 id="1655641e-0e8f-8014-ab2a-fa0a35372218" class="">HTML</h1><p id="1645641e-0e8f-801f-9df4-d3e4886a9aaa" class="">看，这是一个HTML代码编辑框。</p><iframe src = "../code-editor/index.html" width="100%" height="50%"></iframe><p id="1645641e-0e8f-80f6-8cb1-c42e797c32fa" class="">点击按钮“HTML”，再输入代码：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1645641e-0e8f-8006-aeea-caf3a89c80c2" class="code"><code class="language-HTML">&lt;p&gt;My cat is very grumpy&lt;/p&gt;</code></pre><p id="1645641e-0e8f-8059-b781-f97bf21e8fb9" class="">点击运行，你会看到如下内容：</p><blockquote id="1645641e-0e8f-8067-80a2-f9afe7a2635d" class="">My cat is very grumpy</blockquote><p id="1645641e-0e8f-8047-ac54-e3e9d3d7c0fc" class="">🎉恭喜你做出了你的第一个HTML！</p><p id="1645641e-0e8f-8012-9abe-e2e2fe55678c" class="">好了，接下来我们就来了解一下，这行代码是如何运作的。</p><figure id="1645641e-0e8f-80a1-beb9-d063f8b42003" class="image"><a href="image.png"><img style="width:411.2206115722656px" src="image.png"/></a></figure><p id="1645641e-0e8f-8070-b94e-e34ee666a17a" class="">这个元素的主要部分有：</p><ol type="1" id="1645641e-0e8f-8098-ab26-fb760a73d913" class="numbered-list" start="1"><li><strong>开始标签</strong>（Opening tag）：包含元素的名称（本例为 p），及一对包围名称的<strong>尖括号</strong>。这表示元素从这里开始或者开始起作用——在本例中即段落由此开始。</li></ol><ol type="1" id="1645641e-0e8f-8054-82ee-d0af282d3aa9" class="numbered-list" start="2"><li><strong>结束标签</strong>（Closing tag）：与开始标签相似，只是其在元素名之前包含了一个<em>正斜杠</em>。这表示元素到这里结束——在本例中即段落在此结束。初学者常常会犯忘记添加结束标签的错误，这可能会产生一些奇怪的结果。</li></ol><ol type="1" id="1645641e-0e8f-80fd-b93c-cd605a817565" class="numbered-list" start="3"><li><strong>内容</strong>（Content）：元素的内容，本例中就是所输入的文本本身。</li></ol><ol type="1" id="1645641e-0e8f-80f1-b543-c6f9b1b9acb4" class="numbered-list" start="4"><li><strong>元素</strong>（Element）：开始标签、结束标签与内容相结合，便是一个完整的元素。</li></ol><p id="1645641e-0e8f-80b4-9ecf-fd746aeb97c0" class="">元素也可以有下图中那样的属性（Attribute）：</p><figure id="1645641e-0e8f-8039-9588-deda0f084651" class="image"><a href="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content/grumpy-cat-attribute-small.png"><img src="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content/grumpy-cat-attribute-small.png"/></a></figure><p id="1645641e-0e8f-8062-b212-d18ba8969c8f" class="">属性包含的是不想在真正的内容中出现的和元素有关的额外信息。本例中，<code>class</code> 是属性<em>名</em>，<code>editor-note</code> 是属性<em>值</em>。<code>class</code> 属性是可以用于定位元素（以及任何其他有相同 <code>class</code> 值的元素）的标识名称，以便进一步为元素指定样式或进行其他操作时使用。一些属性没有值，如 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes/required">required</a></code>。</p><p id="1645641e-0e8f-80cb-af85-da71a399892a" class="">有值的属性应该包含：</p><ol type="1" id="1645641e-0e8f-805d-9d8f-ed60311fc26c" class="numbered-list" start="1"><li>属性与元素名称（或上一个属性，如果元素有超过一个属性的话）之间的一个空格。</li></ol><ol type="1" id="1645641e-0e8f-8027-a3a1-eb6ee509fc58" class="numbered-list" start="2"><li>属性名，后接一个等号。</li></ol><ol type="1" id="1645641e-0e8f-8072-a49d-d1efca644587" class="numbered-list" start="3"><li>一对引号包围的属性值。</li></ol><p id="1645641e-0e8f-80cb-9f02-d22e3714e16e" class=""><strong>备注：</strong> 不包含 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/ASCII">ASCII</a> 空格（以及 <code>&quot;</code> <code>&#x27;</code> <code>`</code> <code>=</code> <code>&lt;</code> <code>&gt;</code>）的简单属性值可以不使用引号，但是建议将所有属性值用引号括起来，这样的代码一致性更佳，更易于阅读。</p><h3 id="1645641e-0e8f-80b0-8025-c7c509fcf971" class="">嵌套元素</h3><p id="1645641e-0e8f-8041-85af-fe32e4c81408" class="">也可以将一个元素置于其他元素之中——称作<strong>嵌套</strong>。要表明猫咪<strong>非常</strong>暴躁，可以将“very”用 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/strong">&lt;strong&gt;</a></code> 元素包围，“very”将突出显示：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1645641e-0e8f-8012-94bd-f00cdb703d26" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy.&lt;/p&gt;</code></pre><blockquote id="1645641e-0e8f-8060-9650-f951959548a4" class="">My cat is <strong>very</strong> grumpy.</blockquote><p id="1645641e-0e8f-8039-ab7d-e8a95a83ef50" class="">注：very被加粗了。</p><p id="1645641e-0e8f-80cc-81ec-ee21e8dafd45" class="">必须保证元素的嵌套次序正确：在上面的例子中，首先使用 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&lt;p&gt;</a></code> 标签，然后是 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/strong">&lt;strong&gt;</a></code> 标签，因此要先结束 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/strong">&lt;strong&gt;</a></code> 标签，最后再结束 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&lt;p&gt;</a></code> 标签。这样是不对的：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1645641e-0e8f-8092-a09c-c96e020a0ad3" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;p&gt;My cat is &lt;strong&gt;very grumpy.&lt;/p&gt;&lt;/strong&gt;</code></pre><p id="1645641e-0e8f-80e8-93e9-fbc11dcf9f99" class="">元素必须正确地开始和结束，才能清楚地显示出正确的嵌套层次。要是像上面那样交叠使用，浏览器就得自己猜测，虽然它会竭尽全力，但很大程度不会给你期望的结果。所以一定要避免！</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1665641e-0e8f-8077-ab61-db1f5eb4fda8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="1665641e-0e8f-8070-809c-d0d7a1f9de1c" class="">常用文本效果标签：</p><p id="1665641e-0e8f-809f-a93d-f176ac080d74" class="">加粗：<code>&lt;strong&gt; &lt;/strong&gt;</code>或者<code>&lt;b&gt; &lt;/b&gt;</code></p><p id="1665641e-0e8f-8094-862c-fb99112be70b" class="">倾斜：<code>&lt;em&gt; &lt;/em&gt;</code>或者<code>&lt;i&gt; &lt;/i&gt;</code></p><p id="1665641e-0e8f-80cb-88fc-c05a6cc343ee" class="">删除线：<code>&lt;del&gt; &lt;/del&gt;</code>或者<code>&lt;s&gt; &lt;/s&gt;</code></p><p id="1665641e-0e8f-8036-9154-f5916b824d17" class="">下划线：<code>&lt;ins&gt; &lt;/ins&gt;</code>或者<code>&lt;u&gt; &lt;/u&gt;</code></p></div></figure><h3 id="1645641e-0e8f-809a-962e-fd9a258738c0" class="">空元素</h3><p id="1645641e-0e8f-8062-acee-e6c23477fadd" class="">不包含任何内容的元素称为<strong><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Void_element">空元素</a></strong>。我们以 HTML 页面中已有的 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img">&lt;img&gt;</a></code> 元素为例：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1645641e-0e8f-80d6-8454-df12194362f6" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot; /&gt;</code></pre><p id="1645641e-0e8f-801c-b2e1-c2d566d93c4f" class="">本元素包含两个属性，但是并没有 <code>&lt;/img&gt;</code> 结束标签，元素里也没有内容。这是因为图像元素不需要通过内容来产生效果，它的作用是向其所在的位置嵌入一张图片。</p><h3 id="1645641e-0e8f-80ac-bae3-de1ab22d26d0" class="">HTML 文档详解</h3><p id="1645641e-0e8f-80b3-91a4-e2f19f21fc28" class="">以上把 HTML 元素作为个体进行介绍，但孤木不成林。现在来看看单个元素如何彼此协同构成一个完整的 HTML 页面。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1645641e-0e8f-8000-af2e-e5d7d70bcbf2" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!doctype html&gt;
+  &lt;html lang=&quot;en-US&quot;&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;utf-8&quot; /&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+        &lt;title&gt;My test page&lt;/title&gt;
+     &lt;/head&gt;
+    &lt;body&gt;
+      &lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot; /&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</code></pre><p id="1645641e-0e8f-80f1-bb40-fce19314c012" class="">这里有：</p><ul id="1645641e-0e8f-8029-867c-de47e013a5e2" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;!doctype html&gt;</code>——文档类型。这是必不可少的开头。混沌初分，HTML 尚在襁褓（大约是 1991/92 年）之时，这个元素用来关联 HTML 编写规范，以供自动查错等功能所用。而在当今，它作用有限，可以说仅用于保证文档正常读取。现在知道这些就足够了。</li></ul><ul id="1645641e-0e8f-80e8-a637-db08502094aa" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;html&gt;&lt;/html&gt;</code>——<code>&lt;html&gt;</code> 元素。该元素包含整个页面的所有内容，有时候也称作根元素。它还包含 <code>lang</code> 属性，设置页面的主要语种。</li></ul><ul id="1645641e-0e8f-8014-9fef-cfc9749ea701" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;head&gt;&lt;/head&gt;</code>——<code>&lt;head&gt;</code> 元素。该元素作为想在 HTML 页面中包含但不想向用户显示的内容的容器。包括想在搜索结果中显示的关键字和页面描述、用于设置页面样式的 CSS、字符集声明等等。</li></ul><ul id="1645641e-0e8f-80e6-8f4a-cee9cd3a670b" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>——该元素指明你的文档使用 UTF-8 字符编码，UTF-8 包括世界绝大多数书写语言的字符。它基本上可以处理任何文本内容。以它为编码还可以避免以后出现某些问题，没有理由再选用其他编码。</li></ul><ul id="1645641e-0e8f-80a1-95b5-ff071cb8f779" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code>——视口元素可以确保页面以视口宽度进行渲染，避免移动端浏览器以比视口更宽的宽度渲染内容，导致内容缩小。</li></ul><ul id="1645641e-0e8f-801d-ba70-fd252cc20696" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;title&gt;&lt;/title&gt;</code>——<code>&lt;title&gt;</code> 元素。该元素设置页面的标题，显示在浏览器标签页上，也作为收藏网页的描述文字。</li></ul><ul id="1645641e-0e8f-8059-be1a-d5faf64af82d" class="bulleted-list"><li style="list-style-type:disc"><code>&lt;body&gt;&lt;/body&gt;</code>——<code>&lt;body&gt;</code> 元素。该元素包含期望让用户在访问页面时看到的<em>全部</em>内容，包括文本、图像、视频、游戏、可播放的音轨或其他内容。</li></ul><h2 id="1645641e-0e8f-8027-a693-fefa77cf55c4" class="">图像</h2><p id="1645641e-0e8f-8099-97da-cbb5964d8eff" class="">重温一下 <code>&lt;img&gt;</code> 元素：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1645641e-0e8f-8031-bb63-c8dcbe1afda8" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot; /&gt;</code></pre><p id="1645641e-0e8f-805e-9062-d4764911da24" class="">正如之前讲的那样，该元素通过在属性 <code>src</code> 中包含图像文件路径的地址，可在所在位置嵌入图像。</p><p id="1645641e-0e8f-8025-89be-da5114ae78be" class="">该元素还包括一个替换文字属性 <code>alt</code>。在 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#%E4%BD%BF%E7%94%A8%E6%9C%89%E5%AE%9E%E9%99%85%E6%84%8F%E4%B9%89%E7%9A%84%E5%A4%87%E7%94%A8%E6%8F%8F%E8%BF%B0">alt</a></code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#%E4%BD%BF%E7%94%A8%E6%9C%89%E5%AE%9E%E9%99%85%E6%84%8F%E4%B9%89%E7%9A%84%E5%A4%87%E7%94%A8%E6%8F%8F%E8%BF%B0"> 属性</a>中，是图像的描述内容，用于当图像不能被用户看见时显示，不可见的原因可能是：</p><ol type="1" id="1645641e-0e8f-8092-92ab-ddb8e9139073" class="numbered-list" start="1"><li>用户有视觉障碍。有严重视觉障碍的用户可以使用屏幕阅读器来朗读 alt 属性的内容。</li></ol><ol type="1" id="1645641e-0e8f-8013-ad54-c7c0ea13a0b1" class="numbered-list" start="2"><li>有些错误使图像无法显示。可以试着故意将 <code>src</code> 属性里的路径改错。保存并刷新页面就可以在图像位置看到：</li></ol><figure id="1645641e-0e8f-802a-9ee3-ea4c1c78f81d" class="image"><a href="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content/alt-text-example.png"><img src="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content/alt-text-example.png"/></a></figure><p id="1645641e-0e8f-80b6-93d6-d4a42cbfd18b" class="">alt 文本的关键字即“描述文本”。alt 文本应向用户完整地传递图像要表达的意思。用“测试图片”来描述 Firefox 标志并不合适，修改成“Firefox 标志：一只盘旋在地球上的火狐”就好多了。</p><p id="1645641e-0e8f-8013-98f5-f32e130bc9b6" class="">可以试着为图像编写一些更好的 alt 文本。</p><p id="1655641e-0e8f-8020-b720-edf6dd134256" class="">尝试一下：</p><iframe src = "../code-editor/index.html" width="100%" height="50%"></iframe><h2 id="1655641e-0e8f-8019-a98d-d4d95f603dfb" class="">链接</h2><p id="1655641e-0e8f-803e-820c-c1401b3b590d" class=""><code>&lt;a&gt;</code> 标签用于定义超链接，通常通过 <code>href</code> 属性指定目标地址。该标签使文本成为可点击的链接，点击后跳转到指定URL。</p><p id="1655641e-0e8f-8041-93ef-c22e32f7b8c6" class="">示例：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1655641e-0e8f-8016-94cb-d2bbb2419371" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;a href=&quot;https://cn.bing.com&quot;&gt;点击访问 bing 网站&lt;/a&gt;</code></pre><h2 id="1665641e-0e8f-8002-b36f-cf4bfde48d49" class="">“盒子”</h2><p id="1665641e-0e8f-803b-b091-f66dc75b2c51" class="">&lt;div&gt;与&lt;span&gt;标签能将HTML分成几个板块。它们相当于盒子，可以把其他代码装进去。</p><p id="1665641e-0e8f-8097-b9b8-f30e32f31119" class="">&lt;div&gt;&lt;/div&gt;是大盒子，一行只能放一个大盒子。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-80f8-8265-dec43c6e7d4e" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;div style=&quot;background-color: brown;&quot;&gt;111&lt;/div&gt;
+&lt;div style=&quot;background-color: bisque;&quot;&gt;222&lt;/div&gt;
+&lt;div style=&quot;background-color: aqua;&quot;&gt;333&lt;/div&gt;</code></pre><p id="1665641e-0e8f-8092-a598-f025524b96a1" class="">效果：</p><figure id="1665641e-0e8f-80b1-a806-e95a7c1b3da9" class="image"><a href="https://i-blog.csdnimg.cn/blog_migrate/f1dfb2b7d6ddbea2e4bcab93388debc8.png#pic_center"><img src="https://i-blog.csdnimg.cn/blog_migrate/f1dfb2b7d6ddbea2e4bcab93388debc8.png#pic_center"/></a></figure><p id="1665641e-0e8f-805c-bcb1-f82d37643471" class="">&lt;span&gt;&lt;/span&gt;是小盒子，一行可以放多个。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-80c4-a289-d3a46870a98d" class="code"><code class="language-HTML">&lt;span style=&quot;background-color: brown;&quot;&gt;111&lt;/span&gt;
+&lt;span style=&quot;background-color: bisque;&quot;&gt;222&lt;/span&gt;
+&lt;span style=&quot;background-color: aqua;&quot;&gt;333&lt;/span&gt;</code></pre><p id="1665641e-0e8f-809b-9921-cddddf115970" class="">效果：</p><figure id="1665641e-0e8f-8055-8326-d3e5cf4c5feb" class="image"><a href="https://i-blog.csdnimg.cn/blog_migrate/4e8f89baf234432f9b7a5aab53ca7213.png#pic_center"><img src="https://i-blog.csdnimg.cn/blog_migrate/4e8f89baf234432f9b7a5aab53ca7213.png#pic_center"/></a></figure><h2 id="1655641e-0e8f-80a4-9850-ef93c93c6bb9" class="">嵌入</h2><p id="1665641e-0e8f-8014-a5bb-ca4eb52736fb" class="">&lt;iframe&gt;标签可以嵌入其他的东西，比如图像、网站、html文件等等。这可以组合起一大堆散碎的页面，节省你的精力；嵌入可交互的网页也比一张图片更加实在、具体。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-8020-9600-f99ca2c7aca9" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;iframe src=&quot;cn.bing.com&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;&lt;/iframe&gt;</code></pre><ul id="1665641e-0e8f-8007-b16a-e733b1c09a19" class="bulleted-list"><li style="list-style-type:disc"><strong>src</strong>: 嵌入内容的 URL 地址。</li></ul><ul id="1665641e-0e8f-8040-919a-d9e3e379b19d" class="bulleted-list"><li style="list-style-type:disc"><strong>width</strong>: 设置 iframe 的宽度。</li></ul><ul id="1665641e-0e8f-8045-9292-d5d49147f200" class="bulleted-list"><li style="list-style-type:disc"><strong>height</strong>: 设置 iframe 的高度。</li></ul><p id="1665641e-0e8f-801c-975b-f561d2f3a376" class=""><strong>常用属性</strong></p><ul id="1665641e-0e8f-80f7-85e2-d6b73106b685" class="bulleted-list"><li style="list-style-type:disc"><strong>frameborder</strong>: 设定边框。可以是 &quot;0&quot;（无边框）或 &quot;1&quot;（有边框）。</li></ul><ul id="1665641e-0e8f-8066-903c-fb7c8e201d77" class="bulleted-list"><li style="list-style-type:disc"><strong>allowfullscreen</strong>: 允许全屏显示。</li></ul><ul id="1665641e-0e8f-80bc-ba1f-caf39d48312c" class="bulleted-list"><li style="list-style-type:disc"><strong>sandbox</strong>: 启用一系列安全限制，比如禁止脚本执行、表单提交等。</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-8042-89e6-c84094cabe75" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">html
+
+&lt;iframe src=&quot;https://www.example.com&quot; width=&quot;600&quot; height=&quot;400&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1665641e-0e8f-80c3-aa1a-e6229e77aaa6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="1665641e-0e8f-8078-bef2-f4d4fb902696" class=""><strong>注意：</strong></p><p id="1665641e-0e8f-8042-813a-e9da89cbbd2b" class="">嵌入的页面必须满足同源策略，或在目标网站中允许嵌入。</p><p id="1665641e-0e8f-8016-a1f8-ee9985df4170" class="">使用时要考虑用户体验，确保内容在 iframe 中能够正确展示。</p></div></figure><p id="1665641e-0e8f-8001-9fdd-f6766ab7d1a7" class="">HTML标签还有很多，但它们万变不离其宗，都遵循着最简单的代码格式。感兴趣的读者可以去网上了解更多的HTML标签。</p><p id="1665641e-0e8f-806c-8974-f5d44dc4b44c" class="">你也可以在下面的代码框中练习一下。</p><iframe src = "../code-editor/index.html" width="100%" height="50%"></iframe><h1 id="1665641e-0e8f-80f3-a660-c489c227f6c4" class="">CSS&amp;Javascript</h1><p id="1665641e-0e8f-8009-801b-d61fb5aff27d" class="">CSS主要用来设置网页的样式，比如文字的字体、大小、位置等等。和 HTML 类似，CSS 不是编程语言。它也不是标记语言，<strong>而是一门样式表语言</strong>。</p><p id="1665641e-0e8f-806f-b161-dca07d84e86c" class=""><br/>下列的 CSS 代码选择了所有的段落文本，并将它们设置为红色。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-8080-ae9d-e0e2a569c34e" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">p {
+  color: red;
+}</code></pre><iframe src = "../code-editor/index.html" width="100%" height="50%"></iframe><p id="1665641e-0e8f-80f4-905a-d3249aab7cc1" class="">让我们来试一试！在上面编辑器中随意输入一些&lt;p&gt;包裹的段落，比如<code>&lt;p&gt;My cat is very grumpy&lt;/p&gt;</code> ，再点击“CSS”按钮，输入以上代码。点击运行，你应该会看到如下文本：</p><p id="1665641e-0e8f-80a3-8721-d708ae768d78" class="block-color-red">My cat is very grumpy</p><p id="1665641e-0e8f-8068-9bdc-fc4d0783f17b" class="">这就是CSS的作用。</p><hr id="1665641e-0e8f-800d-b43b-c35d212858fb"/><p id="1665641e-0e8f-80ac-9c22-e63250b803a7" class="">我们来看看这玩意儿是怎么工作的：</p><figure id="1665641e-0e8f-8099-b8f1-e8bf36df7b35" class="image"><a href="image%201.png"><img style="width:707.99072265625px" src="image%201.png"/></a></figure><p id="1665641e-0e8f-808a-802e-f3bccee670ae" class="">整个结构称为<strong>规则集</strong>（<em>规则集</em>通常简称为<em>规则</em>），注意各个部分的名称：</p><ul id="1665641e-0e8f-80f8-97b0-c30bed7a6c3d" class="bulleted-list"><li style="list-style-type:disc">选择器（Selector）HTML 元素名位于规则集的开头。它定义了需要添加样式的元素（本例中就是 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&lt;p&gt;</a></code> 元素）。要给不同的元素添加样式，只需要更改选择器。</li></ul><ul id="1665641e-0e8f-805d-8514-d64a43579cb8" class="bulleted-list"><li style="list-style-type:disc">声明（Declaration）它是一条单独的规则（如 <code>color: red;</code>）。用来指定为元素的哪个<strong>属性</strong>添加样式。</li></ul><ul id="1665641e-0e8f-80ee-9fff-fb274e4a1478" class="bulleted-list"><li style="list-style-type:disc">属性（Properties）它是为 HTML 元素添加样式的方式（本例中 <code>color</code> 就是 <code><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&lt;p&gt;</a></code> 元素的属性）。在 CSS 中，你可以选择要在规则中影响的属性。</li></ul><ul id="1665641e-0e8f-8050-a5f9-d4824970cc26" class="bulleted-list"><li style="list-style-type:disc">属性值（Property value）位于属性的右边，冒号后面即<strong>属性值</strong>。它从指定属性的可选值中选择一个值（例如，我们除了 <code>red</code> 之外还有很多属性值可以用于 <code>color</code>）。</li></ul><p id="1665641e-0e8f-80ed-82e6-fe58f3424a89" class="">注意其他重要的语法：</p><ul id="1665641e-0e8f-805b-a3d7-fdf3675c40e1" class="bulleted-list"><li style="list-style-type:disc">除了选择器部分，每个规则集都应该包含在成对的大括号里（<code>{}</code>）。</li></ul><ul id="1665641e-0e8f-8078-a799-e0dc5e0fedcf" class="bulleted-list"><li style="list-style-type:disc">在每个声明里要用冒号（<code>:</code>）将属性与属性值分隔开。</li></ul><ul id="1665641e-0e8f-801b-a566-dcf3a71ab4b8" class="bulleted-list"><li style="list-style-type:disc">在每个规则集里要用分号（<code>;</code>）将各个声明分隔开。</li></ul><p id="1665641e-0e8f-800d-8550-db9edadfcff4" class="">如果要在规则集中同时修改多个属性，只需要将它们用分号隔开，就像这样：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-80fe-81ac-cdbe0b9352c6" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">p {
+  color: red;
+  width: 500px;
+  border: 1px solid black;
+}
+</code></pre><h3 id="1665641e-0e8f-80b2-93c6-c23524d3f94c" class="">选择多个元素</h3><p id="1665641e-0e8f-80fe-a84c-f62593b5f0ad" class="">也可以选择多个元素并为它们添加单个规则集，多个选择器之间用逗号分隔。例如：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1665641e-0e8f-80d1-8ccf-e824c525dd74" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">p,
+li,
+h1 {
+  color: red;
+}</code></pre><p id="1665641e-0e8f-8080-b70d-fd585152a07e" class="">现在你只需了解CSS的基本结构即可，后期我们会讲到如何用其他方式来处理网页的样式。</p><hr id="1665641e-0e8f-80e9-b080-e585deafc16a"/><p id="1665641e-0e8f-808a-a5bd-f243ead7b6f8" class="">JavaScript 是一门为网站添加交互性的编程语言。交互性体现在游戏、点击按钮或输入表单时的响应行为；动态的样式；动画，等等。不过我们这次并不涉及这门语言，因为HTML与CSS就足以完成简单的交互。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span><a href = "../4/index.html">NEXT</a></body></html>
